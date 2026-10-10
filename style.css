@@ -1,0 +1,37 @@
+body {
+    margin: 0;
+    background-color: #15181E;
+    color: #E5E7EB;
+    font-family: Arial, sans-serif;
+}
+
+nav a {
+    color: #E5E7EB;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #89B4FF;
+}
+
+main section {
+    min-height: 100vh;
+    padding-top: 48px;
+    padding-bottom: 48px;
+}
+
+header {
+    border-bottom: 1px solid #343D4B;
+}
+
+.foto-placeholder {
+    width: 100%;
+    max-width: 320px;
+    height: 360px;
+    background-color: #252B35;
+    border: 1px solid #343D4B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-inline: auto;
+}
