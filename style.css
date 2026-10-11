@@ -35,3 +35,93 @@ header {
     justify-content: center;
     margin-inline: auto;
 }
+
+#sobre-mim h1 {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+}
+
+#sobre-mim h2 {
+    font-size: 1.5rem;
+    margin-top: 32px;
+    margin-bottom: 16px;
+}
+
+#sobre-mim h3 {
+    font-size: 1.125rem;
+}
+
+.subtitulo {
+    color: #89B4FF;
+    font-size: 1.25rem;
+    margin-bottom: 24px;
+}
+
+#sobre-mim p {
+    line-height: 1.7;
+}
+
+@media (max-width: 767px) {
+    main section {
+        min-height: auto;
+    }
+}
+
+.projeto {
+    background-color: #252B35;
+    border: 1px solid #343D4B;
+    padding: 24px;
+    margin-bottom: 24px;
+    position: relative;
+}
+
+.projeto::before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: #89B4FF;
+    border-radius: 50%;
+    left: -31px;
+    top: 28px;
+}
+
+.timeline {
+    border-left: 2px solid #89B4FF;
+    padding-left: 24px;
+    margin-top: 24px;
+}
+
+.imagem-projeto {
+    min-height: 180px;
+    background-color: #15181E;
+    border: 1px solid #343D4B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.experiencia {
+    background-color: #252B35;
+    border: 1px solid #343D4B;
+    padding: 24px;
+    height: 100%;
+}
+
+#contato .form-control {
+    background-color: #252B35;
+    color: #E5E7EB;
+    border-color: #596170;
+}
+
+#contato .form-control:focus {
+    background-color: #252B35;
+    color: #E5E7EB;
+    border-color: #89B4FF;
+    box-shadow: 0 0 0 3px rgba(137, 180, 255, 0.25);
+}
+
+footer {
+    border-top: 1px solid #343D4B;
+    color: #A6ADBA;
+}
