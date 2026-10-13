@@ -87,7 +87,13 @@ Sem configuração, o formulário informa a pendência e não simula um envio be
 
 ## Deploy
 
-Publicação preparada para GitHub Pages. No repositório, escolha Settings → Pages → Deploy from a branch → main → /(root) → Save. Após ativação, a URL esperada é `https://lucas-tech255.github.io/portfolio/`; isso não confirma que já esteja online. Teste a URL e atualize esta seção com o link efetivamente publicado.
+## Deploy
+
+O site está publicado no GitHub Pages:
+
+https://lucas-tech255.github.io/portfolio/
+
+O formulário foi testado na versão pública, com confirmação de envio e recebimento do e-mail.
 
 ## Demonstração — Wireframes
 

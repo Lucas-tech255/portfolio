@@ -74,7 +74,13 @@ function renderizarProjetos(filtro = "todos") {
         } else texto.append(elemento("p", "Tecnologias: a confirmar", "texto-secundario"));
         const github = urlSegura(projeto.github), demo = urlSegura(projeto.demo);
         if (github) texto.append(linkProjeto("Repositório no GitHub", github));
-        else texto.append(elemento("p", "Repositório do projeto: a adicionar", "texto-secundario"));
+        else texto.append(elemento(
+            "p",
+            projeto.id === "alex"
+                ? "Código não disponibilizado publicamente"
+                : "Repositório do projeto: a adicionar",
+            "texto-secundario"
+        ));
         if (demo) texto.append(linkProjeto("Ver projeto", demo));
         const midia = elemento("div", "", "col-md-5");
         // Imagens devem ser arquivos locais, dentro de assets/projetos/.
@@ -121,8 +127,10 @@ async function enviarMensagem(evento) {
     try {
         const resposta = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
             method: "POST", headers: { "Content-Type": "application/json" }, signal: controle.signal,
-            body: JSON.stringify({ service_id: config.serviceId, template_id: config.templateId, user_id: config.publicKey,
-                template_params: { from_name: nome, reply_to: form.elements.email.value.trim(), message: mensagem } })
+            body: JSON.stringify({
+                service_id: config.serviceId, template_id: config.templateId, user_id: config.publicKey,
+                template_params: { from_name: nome, reply_to: form.elements.email.value.trim(), message: mensagem }
+            })
         });
         if (!resposta.ok) throw new Error("Falha no serviço");
         retorno.textContent = "Mensagem enviada com sucesso! Obrigado pelo contato.";

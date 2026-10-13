@@ -24,6 +24,17 @@ header {
     border-bottom: 1px solid #343D4B;
 }
 
+.foto-perfil {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    height: 360px;
+    object-fit: cover;
+    border: 1px solid #343D4B;
+    margin-inline: auto;
+    border-radius: 12px;
+}
+
 .foto-placeholder {
     width: 100%;
     max-width: 320px;
