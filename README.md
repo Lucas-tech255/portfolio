@@ -129,4 +129,4 @@ Lucas Samuel Nogueira Barbosa — [GitHub](https://github.com/Lucas-tech255) · 
 
 ## Agradecimentos
 
-Professor João Paulo Aramuni pelas orientações do laboratório. Desenvolvimento iniciado pelo autor e complementado com auxílio de IA; a explicação das alterações está em `docs/EXPLICACAO.md`.
+Professor João Paulo Aramuni pelas orientações do laboratório; a explicação das alterações está em `docs/EXPLICACAO.md`.
