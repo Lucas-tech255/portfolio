@@ -125,3 +125,32 @@ footer {
     border-top: 1px solid #343D4B;
     color: #A6ADBA;
 }
+/* Ajustes de navegação, acessibilidade e componentes interativos. */
+html { scroll-behavior: smooth; }
+body { overflow-wrap: anywhere; }
+a { color: #89B4FF; }
+a:hover { color: #BBD4FF; }
+:focus-visible { outline: 3px solid #89B4FF; outline-offset: 4px; }
+.pular-conteudo { position: absolute; top: -100px; left: 16px; padding: 12px; background: #15181E; z-index: 10; }
+.pular-conteudo:focus { top: 8px; }
+.idiomas, .filtros { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.texto-secundario { color: #A6ADBA; }
+.projeto h3, .experiencia h3 { font-size: 1.4rem; }
+.projeto .periodo { color: #A6ADBA; font-size: .9rem; }
+.tecnologias { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
+.tecnologias li { padding: 4px 8px; border: 1px solid #596170; font-size: .875rem; }
+.imagem-projeto { aspect-ratio: 16 / 10; text-align: center; padding: 16px; }
+img.imagem-projeto { width: 100%; height: auto; object-fit: contain; padding: 0; }
+.rede-social { display: inline-flex; align-items: center; gap: 8px; margin: 0 16px 16px 0; text-decoration: none; }
+.rede-social svg { width: 24px; height: 24px; fill: currentColor; flex-shrink: 0; }
+.campo-antispam { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.retorno-erro { color: #FFB4B4; }
+.retorno-sucesso { color: #A6E5BC; }
+@media (max-width: 767px) {
+    #sobre-mim h1 { font-size: 2rem; }
+    .projeto, .experiencia { padding: 18px; }
+    .timeline { padding-left: 18px; }
+    .projeto::before { left: -25px; }
+    main section { padding-block: 40px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

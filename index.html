@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-bs-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfólio de Lucas Barbosa, estudante de Ciência da Computação na PUC Minas. Projetos, formação e contato.">
     <title>Lucas Barbosa | Portfólio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -11,6 +12,7 @@
 </head>
 
 <body>
+    <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
     <header class="container d-flex justify-content-between align-items-center flex-wrap gap-3 py-4">
         <p class="mb-0">Lucas Barbosa</p>
 
@@ -22,32 +24,36 @@
         </nav>
     </header>
 
-    <main class="container">
-        <section id="sobre-mim">
+    <main id="conteudo" class="container">
+        <section id="sobre-mim" aria-labelledby="nome-titulo">
+            <div class="idiomas" role="group" aria-label="Idioma da apresentação">
+                <button type="button" class="btn btn-outline-primary active" data-idioma="pt" aria-pressed="true">Português</button>
+                <button type="button" class="btn btn-outline-primary" data-idioma="en" aria-pressed="false">English</button>
+            </div>
             <div class="row align-items-center g-4">
 
                 <div class="col-md-8">
-                    <h1>Lucas Samuel Nogueira Barbosa</h1>
-                    <p class="subtitulo">Estudante de Ciência da Computação</p>
-                    <p>
+                    <h1 id="nome-titulo">Lucas Samuel Nogueira Barbosa</h1>
+                    <p class="subtitulo" data-traducao="subtitulo">Estudante de Ciência da Computação</p>
+                    <p data-traducao="apresentacao">
                         Sou estudante de Ciência da Computação na PUC Minas e técnico
                         em Informática pelo IFMG — Campus Ribeirão das Neves.
                     </p>
 
-                    <p>
+                    <p data-traducao="interesses">
                         Tenho interesse em desenvolvimento de software, inteligência
                         artificial, segurança da informação e empreendedorismo.
                         Busco fortalecer minha base em computação e aplicar o que
                         aprendo em projetos que resolvam necessidades reais.
                     </p>
 
-                    <h2>Formação</h2>
+                    <h2 data-traducao="formacao">Formação</h2>
 
-                    <h3>Ciência da Computação</h3>
-                    <p>PUC Minas — desde janeiro de 2026</p>
+                    <h3 data-traducao="curso">Ciência da Computação</h3>
+                    <p data-traducao="puc">PUC Minas — desde janeiro de 2026</p>
 
-                    <h3>Técnico em Informática</h3>
-                    <p>IFMG — Campus Ribeirão das Neves — 2022 a 2024</p>
+                    <h3 data-traducao="tecnico">Técnico em Informática</h3>
+                    <p data-traducao="ifmg">IFMG — Campus Ribeirão das Neves — 2022 a 2024</p>
 
                 </div>
                 <div class="col-md-4">
@@ -61,50 +67,14 @@
         <section id="projetos">
             <h2>Projetos</h2>
 
-            <div class="timeline">
-                <article class="projeto">
-                    <div class="row align-items-center g-4">
-                        <div class="col-md-7">
-                            <h3>Alex Justino Concept</h3>
-                            <p>Em desenvolvimento</p>
-
-                            <p>
-                                Website institucional desenvolvido para um cliente,
-                                com foco na apresentação de sua marca e seus serviços.
-                                O projeto está em fase de ajustes.
-                            </p>
-                        </div>
-
-                        <div class="col-md-5">
-                            <div class="imagem-projeto">
-                                Imagem ou GIF do projeto
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="projeto">
-                    <div class="row align-items-center g-4">
-                        <div class="col-md-7">
-                            <h3>Caderno do Leite</h3>
-                            <p>Em desenvolvimento</p>
-
-                            <p>
-                                Sistema para gestão de uma propriedade leiteira,
-                                criado a partir das necessidades da minha família.
-                                Reúne informações sobre rebanho, produção,
-                                reprodução e relatórios.
-                            </p>
-                        </div>
-
-                        <div class="col-md-5">
-                            <div class="imagem-projeto">
-                                Imagem ou GIF do projeto
-                            </div>
-                        </div>
-                    </div>
-                </article>
+            <p class="texto-secundario">Do mais antigo ao mais recente.</p>
+            <div class="filtros" role="group" aria-label="Filtrar projetos">
+                <button type="button" class="btn btn-outline-primary active" data-filtro="todos" aria-pressed="true">Todos</button>
+                <button type="button" class="btn btn-outline-primary" data-filtro="cliente" aria-pressed="false">Para cliente</button>
+                <button type="button" class="btn btn-outline-primary" data-filtro="pessoal" aria-pressed="false">Pessoais</button>
             </div>
+            <div class="timeline" id="lista-projetos" aria-live="polite"></div>
+            <noscript><p>Ative o JavaScript para visualizar a timeline de Alex Justino Concept e Caderno do Leite.</p></noscript>
         </section>
 
 
@@ -151,37 +121,41 @@
                 <div class="col-md-4">
                     <p>Você pode me encontrar nestas redes:</p>
 
-                    <a href="https://github.com/Lucas-tech255" target="_blank" rel="noopener noreferrer">
-                        GitHub
+                    <a class="rede-social" href="https://github.com/Lucas-tech255" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .8a11.2 11.2 0 0 0-3.54 21.82c.56.1.76-.24.76-.54v-2.08c-3.12.68-3.78-1.33-3.78-1.33-.51-1.29-1.25-1.64-1.25-1.64-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.62 1.22 3.26.93.1-.73.39-1.22.71-1.5-2.49-.28-5.1-1.25-5.1-5.55 0-1.23.44-2.23 1.16-3.02-.12-.28-.5-1.43.11-2.97 0 0 .95-.3 3.08 1.15a10.6 10.6 0 0 1 5.6 0c2.13-1.45 3.08-1.15 3.08-1.15.61 1.54.23 2.69.11 2.97.72.79 1.16 1.79 1.16 3.02 0 4.31-2.62 5.27-5.11 5.55.4.35.76 1.03.76 2.08v3.07c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .8Z"/></svg> GitHub
                     </a>
 
-                    <a href="https://www.linkedin.com/in/lucasnogueirabarbosa" target="_blank"
-                        rel="noopener noreferrer">
-                        LinkedIn
+                    <a class="rede-social" href="https://www.linkedin.com/in/lucasnogueirabarbosa" target="_blank"
+                        rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="1" width="22" height="22" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 9h3v10H5zm1.5-5a1.6 1.6 0 1 1 0 3.2 1.6 1.6 0 0 1 0-3.2ZM10 9h3v1.4c.8-1.1 1.8-1.6 3-1.6 2.5 0 3.5 1.6 3.5 4V19h-3v-5.6c0-1.2-.3-2-1.5-2-1.3 0-2 .9-2 2.3V19h-3Z"/></svg> LinkedIn
                     </a>
                 </div>
 
                 <div class="col-md-8">
-                    <form>
+                    <form id="form-contato">
                         <div class="mb-3">
                             <label for="nome" class="form-label">Nome</label>
-                            <input type="text" id="nome" name="nome" class="form-control" autocomplete="name" required>
+                            <input type="text" id="nome" name="nome" maxlength="100" class="form-control" autocomplete="name" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="email" class="form-label">E-mail</label>
-                            <input type="email" id="email" name="email" class="form-control" autocomplete="email"
+                            <input type="email" id="email" name="email" maxlength="254" class="form-control" autocomplete="email"
                                 required>
                         </div>
 
                         <div class="mb-3">
                             <label for="mensagem" class="form-label">Mensagem</label>
-                            <textarea id="mensagem" name="mensagem" class="form-control" rows="5" required></textarea>
+                            <textarea id="mensagem" name="mensagem" maxlength="5000" minlength="10" class="form-control" rows="5" required></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">
+                        <div class="campo-antispam" aria-hidden="true">
+                            <label for="website">Deixe este campo vazio</label>
+                            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                        </div>
+                        <button type="submit" id="enviar" class="btn btn-primary">
                             Enviar mensagem
                         </button>
+                        <p class="mt-3 texto-secundario">A mensagem será enviada por e-mail. Use este formulário apenas para assuntos profissionais.</p>
+                        <p id="retorno-formulario" role="status" aria-live="polite" class="mt-3"></p>
                     </form>
                 </div>
             </div>
@@ -191,6 +165,9 @@
         <p class="mb-0">Lucas Barbosa — Portfólio pessoal</p>
     </footer>
 
+    <script src="config.js"></script>
+    <script src="projetos.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>

@@ -2,98 +2,96 @@
 
 ## Sobre o Projeto
 
-Portfólio pessoal desenvolvido para a disciplina de Desenvolvimento de Interfaces Web da PUC Minas, ministrada pelo professor João Paulo Aramuni.
-
-O site apresenta minha formação, interesses, projetos e experiências de desenvolvimento, além de disponibilizar canais de contato.
+Portfólio pessoal desenvolvido para a disciplina de Desenvolvimento de Interfaces Web da PUC Minas, ministrada pelo professor João Paulo Aramuni. Apresenta formação, interesses, projetos, experiências de desenvolvimento e canais de contato.
 
 ## Status do Projeto
 
-Em desenvolvimento — Sprint 01.
+Versão com funcionalidades locais implementadas. A entrega final ainda depende de configurar e testar o envio real de e-mail, completar os dados e mídias dos projetos e publicar o site. Nenhum envio ou deploy é apresentado como concluído antes da verificação.
 
-O layout inicial possui quatro seções em uma página única, navegação por links internos e adaptação para computador e celular.
+## Links Úteis
 
-## Tecnologias Utilizadas
-
-- HTML5: estrutura e conteúdo.
-- CSS3: personalização visual e responsividade.
-- Bootstrap 5.3.8: organização do layout e estilos dos componentes.
-- Git e GitHub: versionamento e armazenamento do código.
-- Figma: criação dos wireframes.
-
-### Tecnologias previstas
-
-- JavaScript: alternância entre português e inglês e funcionalidades interativas.
-- Serviço de envio de e-mail: a definir.
-- Hospedagem em nuvem: a definir.
+- [Repositório](https://github.com/Lucas-tech255/portfolio)
+- [LinkedIn](https://www.linkedin.com/in/lucasnogueirabarbosa)
+- Site publicado: pendente de ativação do GitHub Pages.
 
 ## Funcionalidades Principais
 
-### Implementadas na Sprint 01
+- Página única com navegação pelas quatro seções.
+- Apresentação em português e inglês, com preferência salva no navegador.
+- Timeline gerada por JavaScript, ordenada do mais antigo ao mais recente conforme ordem confirmada pelo autor.
+- Filtros de projetos pessoais e para cliente.
+- Experiências organizadas em blocos responsivos.
+- Links com ícones SVG para GitHub e LinkedIn.
+- Formulário com campos obrigatórios, validação de formato, limite de tamanho e estados de envio, sucesso e erro.
+- Integração de envio preparada para a API REST do EmailJS, dependendo da configuração.
+- Navegação por teclado, link para pular ao conteúdo e retorno do formulário anunciado a tecnologias assistivas.
 
-- Navegação entre as quatro seções da página.
-- Apresentação pessoal e formação.
-- Estrutura visual da timeline de projetos.
-- Experiências organizadas em blocos.
-- Links para GitHub e LinkedIn.
-- Interface do formulário com campos obrigatórios.
-- Layout responsivo.
+## Tecnologias Utilizadas
 
-### Previstas para as próximas sprints
+| Tecnologia | Uso |
+| --- | --- |
+| HTML5 | Estrutura semântica e formulário |
+| CSS3 | Tema escuro, timeline e ajustes responsivos |
+| JavaScript | Idiomas, renderização, filtros e formulário |
+| Bootstrap 5.3.8 | Grid, espaçamentos e componentes, via CDN |
+| EmailJS REST API | Serviço externo para envio, ainda não configurado |
+| Git e GitHub | Versionamento |
+| Figma | Wireframes |
+| GitHub Pages | Hospedagem prevista, ainda não ativada |
 
-- Apresentação em português e inglês.
-- Timeline dinâmica com datas, tecnologias e links dos repositórios.
-- Inclusão de foto e imagens ou GIFs dos projetos.
-- Envio de mensagens por e-mail pelo formulário.
-- Ícones nos canais de contato.
-- Publicação do site na nuvem.
+### Dependências
+
+A única biblioteca visual é Bootstrap 5.3.8, carregada pela CDN no HTML. Não há npm, compilação, banco de dados ou servidor próprio. Os ícones são SVG incorporados. A integração EmailJS utiliza `fetch`, sem SDK.
 
 ## Arquitetura
 
-Nesta etapa, o site utiliza HTML e CSS com Bootstrap, executados diretamente no navegador. As funcionalidades em JavaScript e a integração para envio de e-mail serão adicionadas nas próximas etapas.
+O navegador carrega HTML, CSS e os três scripts locais. `projetos.js` contém os dados; `script.js` monta os elementos da timeline, troca os textos da apresentação e trata o envio. O formulário envia uma requisição HTTPS para o serviço EmailJS, responsável por enviar o e-mail pelo serviço conectado pelo autor. O destinatário é definido no template do EmailJS, sem expor um endereço pessoal na interface.
+
+Esta implementação usa uma integração externa, sem backend próprio. O site não é anunciado como aplicação Spring Boot.
 
 ## Estrutura de Pastas
 
-| Arquivo | Finalidade |
+| Caminho | Finalidade |
 | --- | --- |
-| index.html | Estrutura e conteúdo da página |
+| index.html | Conteúdo, navegação, seletor e formulário |
 | style.css | Estilos personalizados |
-| README.md | Documentação do projeto |
+| script.js | Funcionalidades interativas |
+| projetos.js | Dados dos projetos |
+| config.js | Identificadores públicos do EmailJS |
+| docs/wireframes/desktop.png | Protótipo desktop |
+| docs/wireframes/mobile.png | Protótipo celular |
+| docs/EXPLICACAO.md | Explicação do código e roteiro de apresentação |
+| docs/CONFIGURACAO.md | Configuração, publicação e pendências |
+| assets/projetos/ | Local reservado para imagens reais |
+| README.md | Documentação |
 
 ## Instalação e Execução
 
 ### Pré-requisitos
 
-- Navegador atualizado.
-- Git, para clonar o repositório.
-- Conexão com a internet para carregar o Bootstrap via CDN.
+Navegador atualizado, Git para clonar, internet para carregar Bootstrap e enviar mensagens. Python 3 é uma opção para iniciar servidor local.
 
-### Como executar
+```bash
+git clone https://github.com/Lucas-tech255/portfolio.git
+cd portfolio
+python3 -m http.server 8000
+```
 
-1. Clone o repositório:
+Abra `http://localhost:8000`. Interrompa com Ctrl+C. Sem Python, use Live Server do VS Code. O HTML pode ser aberto diretamente para visualizar o layout, mas prefira um servidor para testar o envio HTTP e as políticas de origem do EmailJS.
 
-   ```bash
-   git clone https://github.com/Lucas-tech255/portfolio.git
-   ```
+### Configuração do formulário
 
-2. Abra a pasta criada.
-3. Abra o arquivo `index.html` no navegador.
+Siga [as instruções](docs/CONFIGURACAO.md). Preencha `publicKey`, `serviceId` e `templateId` em `config.js`. O template deve usar `from_name`, `reply_to` e `message` e ter destinatário fixo configurado na conta. Somente a chave pública deve ficar no frontend.
 
-Nesta etapa, não é necessário instalar dependências localmente nem iniciar um servidor.
+Sem configuração, o formulário informa a pendência e não simula um envio bem-sucedido.
 
 ## Deploy
 
-O site ainda não foi publicado. A hospedagem em nuvem será configurada na Sprint 03.
-
-## Autor
-
-Lucas Samuel Nogueira Barbosa
-
-- GitHub: https://github.com/Lucas-tech255
-- LinkedIn: https://www.linkedin.com/in/lucasnogueirabarbosa
+Publicação preparada para GitHub Pages. No repositório, escolha Settings → Pages → Deploy from a branch → main → /(root) → Save. Após ativação, a URL esperada é `https://lucas-tech255.github.io/portfolio/`; isso não confirma que já esteja online. Teste a URL e atualize esta seção com o link efetivamente publicado.
 
 ## Demonstração — Wireframes
 
-Wireframes de média fidelidade criados no Figma para orientar o layout do portfólio.
+Wireframes de média fidelidade criados no Figma. O layout implementado usa a foto à direita e coloca Alex antes do Caderno do Leite, conforme decisões posteriores do autor.
 
 ### Desktop
 
@@ -102,3 +100,33 @@ Wireframes de média fidelidade criados no Figma para orientar o layout do portf
 ### Celular
 
 ![Wireframe mobile](docs/wireframes/mobile.png)
+
+## Verificações
+
+Verificações locais: sintaxe JavaScript, IDs e âncoras, associação entre rótulos e campos e existência dos arquivos referenciados. Testes com DOM/API simulados verificaram troca de idiomas, ordem e filtro dos projetos, bloqueio de configuração ausente, validação de texto, payload e retornos de sucesso/erro. Esses testes não comprovam recebimento real de e-mail nem substituem revisão visual no navegador.
+
+Ainda necessário: conferir desktop e celular no navegador, testar recebimento de mensagem real após configuração e confirmar URL pública. O layout original já havia sido testado pelo autor; esta versão modificada ainda precisa dessa revisão visual.
+
+## Pendências de Conteúdo
+
+- Confirmar datas de início e períodos das experiências.
+- Preencher tecnologias e repositórios dos dois projetos em `projetos.js`.
+- Adicionar imagens/GIFs reais em `assets/projetos/` e preencher o caminho de cada imagem.
+- Substituir o espaço reservado da foto por imagem pessoal, se desejado.
+- Configurar EmailJS e comprovar recebimento.
+- Publicar e verificar o link.
+
+## Documentações Utilizadas
+
+- [Bootstrap](https://getbootstrap.com/docs/5.3/)
+- [EmailJS — envio pela API REST](https://www.emailjs.com/docs/rest-api/send/)
+- [GitHub Pages](https://docs.github.com/en/pages)
+- [Template de README do professor](https://github.com/joaopauloaramuni/desenvolvimento-de-interfaces-web/blob/main/TEMPLATES/template_README.md)
+
+## Autor
+
+Lucas Samuel Nogueira Barbosa — [GitHub](https://github.com/Lucas-tech255) · [LinkedIn](https://www.linkedin.com/in/lucasnogueirabarbosa)
+
+## Agradecimentos
+
+Professor João Paulo Aramuni pelas orientações do laboratório. Desenvolvimento iniciado pelo autor e complementado com auxílio de IA; a explicação das alterações está em `docs/EXPLICACAO.md`.
