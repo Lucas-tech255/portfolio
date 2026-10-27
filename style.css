@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background-color: #15181E;
+    background-color: #10131F;
     color: #E5E7EB;
     font-family: Arial, sans-serif;
 }
@@ -79,7 +79,7 @@ header {
 }
 
 .projeto {
-    background-color: #252B35;
+    background-color: #181D2A;
     border: 1px solid #343D4B;
     padding: 24px;
     margin-bottom: 24px;
@@ -113,7 +113,7 @@ header {
 }
 
 .experiencia {
-    background-color: #252B35;
+    background-color: #181D2A;
     border: 1px solid #343D4B;
     padding: 24px;
     height: 100%;
@@ -165,3 +165,11 @@ img.imagem-projeto { width: 100%; height: auto; object-fit: contain; padding: 0;
     main section { padding-block: 40px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+#sobre-mim {
+    background-image: radial-gradient(
+        ellipse at top right,
+        rgba(104, 155, 235, 0.08),
+        transparent 65%
+    );
+}
