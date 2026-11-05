@@ -1,6 +1,12 @@
 body {
     margin: 0;
     background-color: #10131F;
+    background-image: radial-gradient(
+        ellipse at top right,
+        rgba(104, 155, 235, 0.08),
+        transparent 65%
+    );
+    background-attachment: fixed;
     color: #E5E7EB;
     font-family: Arial, sans-serif;
 }
@@ -166,10 +172,4 @@ img.imagem-projeto { width: 100%; height: auto; object-fit: contain; padding: 0;
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
-#sobre-mim {
-    background-image: radial-gradient(
-        ellipse at top right,
-        rgba(104, 155, 235, 0.08),
-        transparent 65%
-    );
-}
+
