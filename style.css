@@ -173,3 +173,24 @@ img.imagem-projeto { width: 100%; height: auto; object-fit: contain; padding: 0;
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
 
+.cursor-pixel {
+    position: fixed;
+    z-index: 1000;
+    width: 5px;
+    height: 5px;
+    background: #89B4FF;
+    box-shadow: 0 0 7px #89B4FF;
+    pointer-events: none;
+    animation: dissipar-pixel 260ms ease-out forwards;
+}
+
+@keyframes dissipar-pixel {
+    from {
+        opacity: 0.75;
+        transform: translate(-50%, -50%) rotate(45deg) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translate(-50%, -50%) rotate(45deg) scale(0.25);
+    }
+}

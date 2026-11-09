@@ -148,3 +148,24 @@ let idiomaInicial = "pt";
 try { idiomaInicial = localStorage.getItem("idioma-apresentacao") || "pt"; } catch (_) { }
 definirIdioma(idiomaInicial);
 renderizarProjetos();
+
+(() => {
+    const movimentoReduzido = matchMedia("(prefers-reduced-motion: reduce)");
+    let ultimoPonto = -Infinity;
+
+    window.addEventListener("pointermove", (evento) => {
+        if (evento.pointerType !== "mouse" || movimentoReduzido.matches) return;
+        if (evento.timeStamp - ultimoPonto < 24) return;
+
+        ultimoPonto = evento.timeStamp;
+
+        const ponto = document.createElement("span");
+        ponto.className = "cursor-pixel";
+        ponto.setAttribute("aria-hidden", "true");
+        ponto.style.left = `${evento.clientX}px`;
+        ponto.style.top = `${evento.clientY}px`;
+
+        document.body.append(ponto);
+        setTimeout(() => ponto.remove(), 280);
+    }, { passive: true });
+})();
